@@ -12,7 +12,8 @@ namespace api.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=DESKTOP-6TJ4MKL;Database=job-application-socialmedia;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-6TJ4MKL;Database=job-application-socialmedia;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=10.103.0.16,1433;Database=job-application-socialmedia;User Id=student;Password=Cs@2700;MultipleActiveResultSets=true;TrustServerCertificate=True;Encrypt=false;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

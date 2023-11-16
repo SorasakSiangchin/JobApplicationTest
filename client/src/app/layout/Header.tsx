@@ -5,6 +5,7 @@ import { UserOutlined} from '@ant-design/icons';
 import { useAppDispatch, useAppSelector } from '../stores/configureStore';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../stores/accountSlice';
+import { pathHome } from '../util/util';
 
 const { Header: AntHeader } = Layout;
 
@@ -32,7 +33,7 @@ const Header = () => {
         {
             key: '2',
             label: (
-              <Link to="/" onClick={() => dispatch(logout())}>
+              <Link to={pathHome} onClick={() => dispatch(logout())}>
                 Logout
               </Link>
             ),

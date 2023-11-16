@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { List, Avatar, Form, Input, Button, Modal } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useAppDispatch, useAppSelector } from '../app/stores/configureStore';
-import { commentSelectors, createComment, getCommentByContentId, reset } from '../app/stores/commentSlice';
+import { createComment, getCommentByContentId } from '../app/stores/commentSlice';
 import { Comment } from '../app/models/Comment';
 
 interface Prop {

@@ -7,8 +7,9 @@ import { PlusCircleFilled } from '@ant-design/icons';
 import moment from 'moment';
 import useLikePost from '../app/hooks/useLikePost';
 import ModalComment from './ModalComment';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ModalFormContent from './ModalFormContent';
+import { getCurrentAccount } from '../app/stores/accountSlice';
 
 
 const { Title, Text } = Typography;
@@ -19,7 +20,12 @@ const ProfilePage = () => {
     const [openModal, setOpenModal] = useState(false);
     const [contentId, setContentId] = useState('');
     const [open , setOpen] = useState(false);
+    
+    const dispatch = useAppDispatch();
 
+    useEffect(() => {
+        dispatch(getCurrentAccount())
+    } , [])
 
     return (
         <>

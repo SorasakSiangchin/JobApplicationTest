@@ -9,10 +9,10 @@ import { PrivateLogin, PrivateRoute } from './PrivateRoute';
 import LoginPage from '../../features/LoginPage';
 import FeedPage from '../../features/FeedPage';
 import RegisterPage from '../../features/RegisterPage';
-import ErrorPage from '../../features/ErrorPage';
 import ProfilePage from '../../features/ProfilePage';
 import ProfileFriendPage from '../../features/ProfileFriendPage';
 import FriendsPage from '../../features/FriendsPage';
+import { pathHome } from '../util/util';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<PrivateLogin>
+      <Route path={pathHome} element={<PrivateLogin>
         <LoginPage />
       </PrivateLogin>} />
 
@@ -45,7 +45,9 @@ const App = () => {
         <Route path='/friends' element={<FriendsPage />} />
         <Route path="/feed" element={<FeedPage />} />
       </Route>
-      <Route path='*' element={<ErrorPage />} />
+      <Route path='*' element={   <PrivateLogin>
+            <LoginPage />
+        </PrivateLogin>} />
     </Routes>
   )
 }

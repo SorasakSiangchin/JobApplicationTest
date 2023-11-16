@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Header from '../app/layout/Header';
 import { Content } from 'antd/es/layout/layout';
 import { Avatar, Button, Card, Col, Empty, Input, List, Row, Space, Typography } from 'antd';
@@ -22,10 +22,10 @@ const FriendsPage = () => {
   const { friends, account, friendsLoaded } = useAppSelector(state => state.account);
 
   useEffect(() => {
-    if (!friendsLoaded) dispatch(getFriends());
+    dispatch(getFriends());
   }, [friendsLoaded, dispatch]);
 
-  const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
+  const onSearch: SearchProps['onSearch'] = (value, _e,_) => {
     dispatch(searchName(value));
   };
 

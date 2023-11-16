@@ -126,7 +126,7 @@ const ModalFormContent = ({ accountId, open, setOpen }: Prop) => {
                             }}>
                                 <Button 
                                 htmlType='submit' 
-                                disabled={!values.Message && fileList.length <= 0? true : false} 
+                                disabled={!values.Message ? true : false} 
                                 type='primary'
                                 onClick={() => submitForm().then(() => resetModal())}>
                                     Post

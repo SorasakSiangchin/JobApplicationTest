@@ -24,6 +24,7 @@ export const createContent = createAsyncThunk<Result<Content[]>, ContentRequest>
     async (data, thunkAPI) => {
 
     try {
+        // console.log(data)
         return await agent.Content.create(data);
     } catch (error: any) {
         return thunkAPI.rejectWithValue({ error: error.data });

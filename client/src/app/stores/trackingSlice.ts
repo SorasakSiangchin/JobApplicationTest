@@ -84,9 +84,6 @@ export const trackingSlice = createSlice({
             if(success) state.trackingCheck = true;
         });
 
-        builder.addCase(getSinglyTracking.fulfilled, (state, action) => {
-         
-        });
     },
 });
 

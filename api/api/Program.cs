@@ -95,26 +95,36 @@ catch (Exception ex)
 }
 #endregion
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 #region ส่ง error ไปให้ Axios ตอนทำ Interceptor
 app.UseMiddleware<ExceptionMiddleware>();
 #endregion
 
-app.UseCors("_myAllowSpecificOrigins");
 
 app.UseDefaultFiles();
 
 app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseCors("_myAllowSpecificOrigins");
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapFallbackToController("Index", "Fallback"); // บอกเส้นทางมันก่อน
+});
 
 app.Run();
